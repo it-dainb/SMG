@@ -166,5 +166,51 @@ public final class SMGItemSetup {
             .setItem(Material.SOUL_SAND)
             .setRate(8)
             .register(plugin);
+        
+		new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+			SMGItems.SMG_GENERATOR_CHARCOAL,
+			RecipeType.ENHANCED_CRAFTING_TABLE,
+			new ItemStack[] {
+				new ItemStack(Material.OAK_LOG),  new ItemStack(Material.LAVA_BUCKET), new ItemStack(Material.OAK_LOG),
+                new ItemStack(Material.LAVA_BUCKET),  new ItemStack(Material.IRON_AXE),  new ItemStack(Material.LAVA_BUCKET),
+                new ItemStack(Material.OAK_LOG),  new ItemStack(Material.LAVA_BUCKET), new ItemStack(Material.OAK_LOG)
+		 	})
+		.setItem(Material.CHARCOAL)
+		.setRate(8)
+		.register(plugin);
+
+        new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
+            SMGItems.SMG_GENERATOR_COAL_BROKEN,
+            RecipeType.SMELTERY,
+            new ItemStack[] {
+                SMGItems.SMG_GENERATOR_CHARCOAL, null, null,
+                null, null, null,
+                null, null, null
+            })
+        .register(plugin);
+
+        new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+			SMGItems.SMG_GENERATOR_COAL,
+			RecipeType.COMPRESSOR,
+			new ItemStack[] {
+				SMGItems.SMG_GENERATOR_COAL_BROKEN, SMGItems.SMG_GENERATOR_COAL_BROKEN, null,
+                SMGItems.SMG_GENERATOR_COAL_BROKEN, SMGItems.SMG_GENERATOR_COAL_BROKEN, null,
+                null, null, null
+		 	})
+		.setItem(Material.COAL)
+		.setRate(12)
+		.register(plugin);
+
+        new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+			SMGItems.SMG_GENERATOR_COAL_BLOCK,
+			RecipeType.PRESSURE_CHAMBER,
+			new ItemStack[] {
+				SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL,
+                SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL,
+                SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL
+		 	})
+		.setItem(Material.COAL_BLOCK)
+		.setRate(20)
+		.register(plugin);
     }
 }

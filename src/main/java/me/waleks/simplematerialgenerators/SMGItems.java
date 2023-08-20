@@ -143,4 +143,40 @@ public final class SMGItems {
         "",
         "&9&oSimpleMaterialGenerators"
     );
+
+    public static final SlimefunItemStack SMG_GENERATOR_CHARCOAL = new SlimefunItemStack(
+        "SMG_GENERATOR_CHARCOAL",
+        Material.OAK_LOG,
+        "&8Charcoal generator",
+        "&6Rate: &e8 ticks",
+        "",
+        "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_COAL_BROKEN = new SlimefunItemStack(
+        "SMG_GENERATOR_COAL_BROKEN",
+        Material.COAL_ORE,
+        "&8Coal generator &8(Broken)",
+        "&8Needs to be repaired",
+        "",
+        "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_COAL = new SlimefunItemStack(
+        "SMG_GENERATOR_COAL",
+        Material.COAL_ORE,
+        "&8Coal generator",
+        "&6Rate: &e12 ticks",
+        "",
+        "&9&oSimpleMaterialGenerators"
+    );
+
+    public static final SlimefunItemStack SMG_GENERATOR_COAL_BLOCK = new SlimefunItemStack(
+        "SMG_GENERATOR_COAL_BLOCK",
+        Material.COAL_BLOCK,
+        "&8Coal block generator",
+        "&6Rate: &e20 ticks",
+        "",
+        "&9&oSimpleMaterialGenerators"
+    );
 }
