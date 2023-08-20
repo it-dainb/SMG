@@ -15,9 +15,9 @@ public class GeneratorMultiblock extends SimpleSlimefunItem<ItemUseHandler> impl
 
     public GeneratorMultiblock(ItemGroup category, SlimefunItemStack item) {
         super(category, item, RecipeType.MULTIBLOCK, new ItemStack[] {
-                null, null, null,
                 null, new ItemStack(Material.CHEST), null,
-                null, new SlimefunItemStack("ANY_SMG_GENERATOR", Material.BEDROCK, "Any SMG generator"), null
+                new ItemStack(Material.CHEST), new SlimefunItemStack("ANY_SMG_GENERATOR", Material.BEDROCK, "Any SMG generator"), new ItemStack(Material.CHEST),
+                null, new ItemStack(Material.CHEST), null
         });
     }
 
@@ -26,7 +26,7 @@ public class GeneratorMultiblock extends SimpleSlimefunItem<ItemUseHandler> impl
     public ItemUseHandler getItemHandler() {
         return e -> {
             e.cancel();
-            e.getPlayer().sendMessage("Psst, this Item is just a dummy. You need to place the actual generator down.");
+            e.getPlayer().sendMessage("Psst, this Item is just a dummy. You need to place the generator in 1 of the 6 directions [UP, DOWN, EAST, WEST, NORTH, SOUTH].");
         };
     }
 }

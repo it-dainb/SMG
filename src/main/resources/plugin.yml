@@ -2,7 +2,7 @@
 name: SimpleMaterialGenerators
 
 ## CHANGE this to your username.
-author: waleks
+author: itdainb
 
 ## CHANGE this to a meaninful but short description of your plugin.
 description: 'Simple material generators for Slimefun' 
@@ -11,7 +11,7 @@ description: 'Simple material generators for Slimefun'
 main: me.waleks.simplematerialgenerators.SimpleMaterialGenerators
 
 ## You can change this to link to your website or repository. You can also remove this line if you want to.
-website: https://github.com/waleks647/SMG
+website: https://github.com/it-dainb/SMG
 
 ## This value is automatically replaced by the version specified in your pom.xml file.
 ## Do not change this.

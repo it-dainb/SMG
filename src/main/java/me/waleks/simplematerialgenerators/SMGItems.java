@@ -171,6 +171,15 @@ public final class SMGItems {
         "&9&oSimpleMaterialGenerators"
     );
 
+    public static final SlimefunItemStack SMG_GENERATOR_COAL_BLOCK_BROKEN = new SlimefunItemStack(
+        "SMG_GENERATOR_COAL_BLOCK_BROKEN",
+        Material.COAL_BLOCK,
+        "&8Coal block generator &8(Broken)",
+        "&8Needs to be repaired",
+        "",
+        "&9&oSimpleMaterialGenerators"
+    );
+
     public static final SlimefunItemStack SMG_GENERATOR_COAL_BLOCK = new SlimefunItemStack(
         "SMG_GENERATOR_COAL_BLOCK",
         Material.COAL_BLOCK,

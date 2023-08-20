@@ -2,6 +2,7 @@ package me.waleks.simplematerialgenerators;
 
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import me.waleks.simplematerialgenerators.items.BrokenGenerator;
 import me.waleks.simplematerialgenerators.items.GeneratorMultiblock;
 import me.waleks.simplematerialgenerators.items.MaterialGenerator;
@@ -181,9 +182,9 @@ public final class SMGItemSetup {
 
         new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
             SMGItems.SMG_GENERATOR_COAL_BROKEN,
-            RecipeType.SMELTERY,
+            RecipeType.COMPRESSOR,
             new ItemStack[] {
-                SMGItems.SMG_GENERATOR_CHARCOAL, null, null,
+                new SlimefunItemStack(SMGItems.SMG_GENERATOR_CHARCOAL, 4), null, null,
                 null, null, null,
                 null, null, null
             })
@@ -191,23 +192,33 @@ public final class SMGItemSetup {
 
         new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
 			SMGItems.SMG_GENERATOR_COAL,
-			RecipeType.COMPRESSOR,
+			RecipeType.ENHANCED_CRAFTING_TABLE,
 			new ItemStack[] {
-				SMGItems.SMG_GENERATOR_COAL_BROKEN, SMGItems.SMG_GENERATOR_COAL_BROKEN, null,
-                SMGItems.SMG_GENERATOR_COAL_BROKEN, SMGItems.SMG_GENERATOR_COAL_BROKEN, null,
-                null, null, null
+				new ItemStack(Material.COAL_BLOCK), SlimefunItems.COMPRESSED_CARBON, new ItemStack(Material.COAL_BLOCK),
+                SlimefunItems.COMPRESSED_CARBON, SMGItems.SMG_GENERATOR_COAL_BROKEN, SlimefunItems.COMPRESSED_CARBON,
+                new ItemStack(Material.COAL_BLOCK), SlimefunItems.COMPRESSED_CARBON, new ItemStack(Material.COAL_BLOCK)
 		 	})
 		.setItem(Material.COAL)
 		.setRate(12)
 		.register(plugin);
 
-        new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
-			SMGItems.SMG_GENERATOR_COAL_BLOCK,
+        new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
+			SMGItems.SMG_GENERATOR_COAL_BLOCK_BROKEN,
 			RecipeType.PRESSURE_CHAMBER,
 			new ItemStack[] {
-				SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL,
-                SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL,
-                SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL
+				new SlimefunItemStack(SMGItems.SMG_GENERATOR_COAL, 9), null, null,
+                null, null, null,
+                null, null, null
+		 	})
+		.register(plugin);
+
+        new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+			SMGItems.SMG_GENERATOR_COAL_BLOCK,
+			RecipeType.ENHANCED_CRAFTING_TABLE,
+			new ItemStack[] {
+				SlimefunItems.CARBON_CHUNK, SlimefunItems.CARBONADO, SlimefunItems.CARBON_CHUNK,
+                SMGItems.SMG_GENERATOR_COAL, SMGItems.SMG_GENERATOR_COAL_BLOCK_BROKEN, SMGItems.SMG_GENERATOR_COAL,
+                SlimefunItems.CARBON_CHUNK, SlimefunItems.CARBONADO, SlimefunItems.CARBON_CHUNK
 		 	})
 		.setItem(Material.COAL_BLOCK)
 		.setRate(20)

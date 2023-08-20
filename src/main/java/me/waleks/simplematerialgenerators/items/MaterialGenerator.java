@@ -51,23 +51,34 @@ public class MaterialGenerator extends SlimefunItem {
     }
 
     public void tick(@Nonnull Block b) {
-        Block targetBlock = b.getRelative(BlockFace.UP);
-        if (targetBlock.getType() == Material.CHEST) {
-            BlockState state = PaperLib.getBlockState(targetBlock, false).getState();
-            if (state instanceof InventoryHolder) {
-                Inventory inv = ((InventoryHolder) state).getInventory();
-                if (inv.firstEmpty() != -1) {
-                    final BlockPosition pos = new BlockPosition(b);
-                    int progress = generatorProgress.getOrDefault(pos, 0);
+        Block[] targetBlocks = {
+            b.getRelative(BlockFace.UP),
+            b.getRelative(BlockFace.DOWN),
+            b.getRelative(BlockFace.EAST),
+            b.getRelative(BlockFace.WEST),
+            b.getRelative(BlockFace.NORTH),
+            b.getRelative(BlockFace.SOUTH)
+        };
 
-                    if (progress >= this.rate) {
-                        progress = 0;
-                        inv.addItem(this.item);
-                    } else {
-                        progress++;
+        for (Block targetBlock : targetBlocks) {
+            if (targetBlock.getType() == Material.CHEST || targetBlock.getType() == Material.HOPPER) {
+                BlockState state = PaperLib.getBlockState(targetBlock, false).getState();
+                if (state instanceof InventoryHolder) {
+                    Inventory inv = ((InventoryHolder) state).getInventory();
+                    if (inv.firstEmpty() != -1) {
+                        final BlockPosition pos = new BlockPosition(b);
+                        int progress = generatorProgress.getOrDefault(pos, 0);
+
+                        if (progress >= this.rate) {
+                            progress = 0;
+                            inv.addItem(this.item);
+                        } else {
+                            progress++;
+                        }
+                        generatorProgress.put(pos, progress);
                     }
-                    generatorProgress.put(pos, progress);
                 }
+                break;
             }
         }
     }
