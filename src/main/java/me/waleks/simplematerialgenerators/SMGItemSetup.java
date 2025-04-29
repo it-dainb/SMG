@@ -108,7 +108,7 @@ public final class SMGItemSetup {
                 new ItemStack(Material.STONE_BRICKS), SlimefunItems.BILLON_INGOT, new ItemStack(Material.STONE_BRICKS)
             })
             .setItem(Material.GRAVEL)
-            .setRate(6)
+            .setRate(8)
             .register(plugin);
 
         new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
@@ -153,7 +153,7 @@ public final class SMGItemSetup {
                 SMGItems.SMG_GENERATOR_STONE, SlimefunItems.COMPOSTER, SMGItems.SMG_GENERATOR_STONE
             })
             .setItem(Material.NETHERRACK)
-            .setRate(6)
+            .setRate(10)
             .register(plugin);
 
         new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
@@ -167,24 +167,56 @@ public final class SMGItemSetup {
             .setItem(Material.SOUL_SAND)
             .setRate(8)
             .register(plugin);
+
+	new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+	    SMGItems.SMG_GENERATOR_WOOD,
+	    RecipeType.ENHANCED_CRAFTING_TABLE,
+	        new ItemStack[] {
+	        new ItemStack(Material.OAK_LOG), new ItemStack(Material.OAK_SAPLING), new ItemStack(Material.OAK_LOG),
+	        new ItemStack(Material.OAK_SAPLING), SlimefunItems.LUMBER_AXE, new ItemStack(Material.OAK_SAPLING),
+	        new ItemStack(Material.OAK_LOG), new ItemStack(Material.OAK_SAPLING), new ItemStack(Material.OAK_LOG)
+	    })
+	.setItem(Material.CHARCOAL)
+	.setRate(6)
+	.register(plugin);
         
-		new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
-			SMGItems.SMG_GENERATOR_CHARCOAL,
-			RecipeType.ENHANCED_CRAFTING_TABLE,
-			new ItemStack[] {
-				new ItemStack(Material.OAK_LOG),  new ItemStack(Material.LAVA_BUCKET), new ItemStack(Material.OAK_LOG),
-                new ItemStack(Material.LAVA_BUCKET),  new ItemStack(Material.IRON_AXE),  new ItemStack(Material.LAVA_BUCKET),
-                new ItemStack(Material.OAK_LOG),  new ItemStack(Material.LAVA_BUCKET), new ItemStack(Material.OAK_LOG)
-		 	})
-		.setItem(Material.CHARCOAL)
-		.setRate(8)
-		.register(plugin);
+        new SlimefunItem(SMGItems.SMG_ITEM_CATEGORY,
+	    SMGItems.SMG_CHARCOAL_BLOCK,
+	    RecipeType.COMPRESSOR,
+	    new ItemStack[] {
+                new ItemStack(Material.CHARCOAL, 9), null, null,
+                null, null, null,
+                null, null, null
+	})
+	.register(plugin);
+ 
+	new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
+            SMGItems.SMG_GENERATOR_CHARCOAL_BROKEN,
+            RecipeType.SMELTERY,
+            new ItemStack[] {
+                new SlimefunItemStack(SMGItems.SMG_GENERATOR_WOOD, 1), null, null,
+                null, null, null,
+                null, null, null
+            })
+        .register(plugin);
+	    
+    	new MaterialGenerator(SMGItems.SMG_ITEM_CATEGORY,
+	    SMGItems.SMG_GENERATOR_CHARCOAL,
+	    RecipeType.ENHANCED_CRAFTING_TABLE,
+	    new ItemStack[] {
+		SMGItems.SMG_CHARCOAL_BLOCK,  SlimefunItems.CARBON, SMGItems.SMG_CHARCOAL_BLOCK,
+		SlimefunItems.CARBON,  SMGItems.SMG_GENERATOR_CHARCOAL_BROKEN,  SlimefunItems.CARBON,
+		SMGItems.SMG_CHARCOAL_BLOCK,  SlimefunItems.CARBON, SMGItems.SMG_CHARCOAL_BLOCK
+	    })
+	    .setItem(Material.CHARCOAL)
+	    .setRate(8)
+	    .register(plugin);
 
         new BrokenGenerator(SMGItems.SMG_ITEM_CATEGORY,
             SMGItems.SMG_GENERATOR_COAL_BROKEN,
             RecipeType.COMPRESSOR,
             new ItemStack[] {
-                new SlimefunItemStack(SMGItems.SMG_GENERATOR_CHARCOAL, 4), null, null,
+                new SlimefunItemStack(SMGItems.SMG_GENERATOR_CHARCOAL, 9), null, null,
                 null, null, null,
                 null, null, null
             })
